@@ -1,8 +1,8 @@
 name:  Automated Model Training
 on:
-push:
+ push:
    branches: ["main"]
-pull_request:
+ pull_request:
    branches: ["main"]
 jobs:
    train-model:
@@ -15,9 +15,9 @@ jobs:
        echo "Current directory:"
        pwd
        echo "Files in respository root:"
-       Is - la
+       ls - la
        echo "Searching for test_model.py:"
-       find .-name "test_model.py:"
+       find . -name "test_model.py:"
     - name: Checkout Respository Code
       uses: actions/checkout@v4
     - name: Set up python
@@ -35,7 +35,7 @@ jobs:
     - name: Upload Trained Model
       uses: actions/upload-artifact@v4
       with:
-      name: trained-ml-model
-      path: best_model.joblib
+       name: trained-ml-model
+       path: best_model.joblib
         
    
